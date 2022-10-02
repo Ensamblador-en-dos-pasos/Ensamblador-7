@@ -1,0 +1,3 @@
+Dir_Inic	 0000	 null	 ORG	 $0	 Dire_Inic	 0
+ContLoc	 0000	 null	 LDAA	 568,X	 IDX2	 A6
+ContLoc	 0004	 null	 END	 null	 Directiva	 0
