@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 public class CodMaquina {
     String valor, contloc, et, codop, oper, addr, cmc, cmf, ff;
     String[] result;
+    String resultado;
+    String[] result1;
     int op = 0, base = 0, valor1;
     boolean negpos = true;
     String rr = "", aa = "", n, bin, concat, acumulador, z, s;
@@ -332,10 +334,10 @@ public class CodMaquina {
                         cmf = conv.dectohex(valor1);
                         if (cmf.length() == 1) {
                             cmf = "0" + cmf;
-                        }                       
+                        }
                         valor1 = conv.bintodec(bin);
                         ff = conv.dectohex(valor1);
-                        System.out.println(" CMF: " + cmf.toUpperCase() + " "+ ff.toUpperCase());
+                        System.out.println(" CMF: " + cmf.toUpperCase() + " " + ff.toUpperCase());
 
                         break;
 
@@ -367,14 +369,80 @@ public class CodMaquina {
                         bin = Integer.toBinaryString(valor1);
                         concat = "111" + rr + "0" + z + s;
                         valor1 = conv.bintodec(concat);
-                        cmf = conv.dectohex(valor1);                      
+                        cmf = conv.dectohex(valor1);
                         valor1 = conv.bintodec(bin);
                         ff = conv.dectohex(valor1);
                         ff = conv.ceros(ff);
-                        System.out.println(" CMF: " + cmf.toUpperCase() + " "+ ff.toUpperCase());
+                        System.out.println(" CMF: " + cmf.toUpperCase() + " " + ff.toUpperCase());
 
                         break;
 
+                    case "[IDX2]":// Indizado 9 bits 111rr011
+                        System.out.print("CODOP = " + codop + "\tCMC = " + cmc);
+                        resultado = oper.replaceAll("\\[", ",");
+                        result1 = resultado.split(",");
+
+                        if (result1[1] == "") {
+                            valor1 = 0;
+                        } else {
+                            valor1 = Integer.parseInt(result1[1]);
+                        }
+
+                        switch (result1[2]) {
+                            case "X]":
+                                rr = "00";
+                                break;
+                            case "Y]":
+                                rr = "01";
+                                break;
+                            case "SP]":
+                                rr = "10";
+                                break;
+                            case "PC]":
+                                rr = "11";
+                                break;
+                            default:
+                                break;
+                        }
+                        bin = Integer.toBinaryString(valor1);
+                        concat = "111" + rr + "011";
+                        valor1 = conv.bintodec(concat);
+                        cmf = conv.dectohex(valor1);
+                        valor1 = conv.bintodec(bin);
+                        ff = conv.dectohex(valor1);
+                        ff = conv.ceros(ff);
+                        System.out.println(" CMF: " + cmf.toUpperCase() + " " + ff.toUpperCase());
+
+                        break;
+
+                    case "[D,IDX]":// Indizado 9 bits 111rr011
+                        System.out.print("CODOP = " + codop + "\tCMC = " + cmc);
+                        resultado = oper.replaceAll("\\[", ",");
+                        result1 = resultado.split(",");
+
+                        switch (result1[2]) {
+                            case "X]":
+                                rr = "00";
+                                break;
+                            case "Y]":
+                                rr = "01";
+                                break;
+                            case "SP]":
+                                rr = "10";
+                                break;
+                            case "PC]":
+                                rr = "11";
+                                break;
+                            default:
+                                break;
+                        }
+                        bin = Integer.toBinaryString(valor1);
+                        concat = "111" + rr + "111";
+                        valor1 = conv.bintodec(concat);
+                        cmf = conv.dectohex(valor1);
+                        System.out.println(" CMF: " + cmf.toUpperCase());
+
+                        break;
 
                     default:
                         if (codop.equals("END")) {

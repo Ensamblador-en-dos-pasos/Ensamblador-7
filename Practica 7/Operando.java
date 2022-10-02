@@ -10,7 +10,7 @@ public class Operando {
     Conversor conv = new Conversor();
     Validador val = new Validador();
     int valor;
-    int cont = 0;
+    int cont = 0, contError = 0;
 
     /**
      * Método para validar el operando
@@ -113,7 +113,10 @@ public class Operando {
             } else if (range16(valor)) {
                 cadena = "IDX2";
             } else {
-                System.out.println("Error, el tamaño de bits no corresponde a una instrucción");
+                if(contError < 1){
+                    System.out.println("Error, el tamaño de bits no corresponde a una instrucción");
+                    ++contError;
+                }
             }
             ban = true;
         } else if (encontrado3) {// IDX Pre-post
@@ -124,7 +127,10 @@ public class Operando {
             if (rangeprepost(valor)) {
                 cadena = "IDX";
             } else {
-                System.out.println("Error, este codop debe tener un valor decimal de 1 - 8");
+                if(contError < 1){
+                    System.out.println("Error, este codop debe tener un valor decimal de 1 - 8");
+                    ++contError;
+                }
             }
         } else if (encontrado4) {// IDX acumulador
             cadena = "IDX";
@@ -142,7 +148,10 @@ public class Operando {
             if (rangeInd16(valor)) {
                 cadena = "[IDX2]";
             } else {
-                System.out.println("Error, este operando debe estar entre 0 - 65535");
+                if(contError < 1){
+                    System.out.println("Error, este operando debe estar entre 0 - 65535");
+                    ++contError;
+                }
             }
             ban = true;
         } else if (encontrado7) {// Inmediato
@@ -155,14 +164,21 @@ public class Operando {
                                 if (range8(valor)) {
                                     cadena = "Inmediato";
                                 }else{
-                                    System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                        ++contError;
+                                    }
                                 }
                                 break;
                             case 2:
                                 if (range16(valor)) {
                                     cadena = "Inmediato1";
                                 } else {
-                                    System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                        ++contError;
+                                    }
+                                    
                                 }
                                 break;
                             case 3:
@@ -185,14 +201,20 @@ public class Operando {
                                 if (range8(valor)) {
                                     cadena = "Inmediato";
                                 }else{
-                                    System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                        ++contError;
+                                    }
                                 }
                                 break;
                             case 2:
                                 if (range16(valor)) {
                                     cadena = "Inmediato1";
                                 } else {
-                                    System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                        ++contError;
+                                    }
                                 }
                                 break;
                             case 3:
@@ -215,14 +237,20 @@ public class Operando {
                                 if (range8(valor)) {
                                     cadena = "Inmediato";
                                 }else{
-                                    System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                        ++contError;
+                                    }
                                 }
                                 break;
                             case 2:
                                 if (range16(valor)) {
                                     cadena = "Inmediato1";
                                 } else {
-                                    System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                        ++contError;
+                                    }
                                 }
                                 break;
                             case 3:
@@ -246,14 +274,20 @@ public class Operando {
                                 if (range8(valor)) {
                                     cadena = "Inmediato";
                                 }else{
-                                    System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe de ser de 8 bits " + cadena);
+                                        ++contError;
+                                    }
                                 }
                                 break;
                             case 2:
                                 if (range16(valor)) {
                                     cadena = "Inmediato1";
                                 } else {
-                                    System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                    if(contError < 1){
+                                        System.out.println("Error, el operando debe ser de 16 bits "+ cadena);
+                                        ++contError;
+                                    }
                                 }
                                 break;
                             case 3:
@@ -281,7 +315,10 @@ public class Operando {
                     } else if (range16(valor)) {
                         cadena = "Extendido";
                     } else {
-                        System.out.println("Error de longitud de 8 o 16 bits");
+                        if(contError < 1){
+                            System.out.println("Error de longitud de 8 o 16 bits");
+                            ++contError;
+                        }
                     }
                     break;
                 case 2:// Octal
@@ -291,7 +328,10 @@ public class Operando {
                     } else if (range16(valor)) {
                         cadena = "Extendido";
                     } else {
-                        System.out.println("Error de longitud de 8 o 16 bits");
+                        if(contError < 1){
+                            System.out.println("Error de longitud de 8 o 16 bits");
+                            ++contError;
+                        }
                     }
                     break;
                 case 3:// Binario
@@ -301,7 +341,10 @@ public class Operando {
                     } else if (range16(valor)) {
                         cadena = "Extendido";
                     } else {
-                        System.out.println("Error de longitud de 8 o 16 bits");
+                        if(contError < 1){
+                            System.out.println("Error de longitud de 8 o 16 bits");
+                            ++contError;
+                        }
                     }
                     break;
                 case 4:// Decimal
@@ -312,7 +355,10 @@ public class Operando {
                         cadena = "Extendido";
 
                     } else {
-                        System.out.println("Error de longitud de 8 o 16 bits");
+                        if(contError < 1){
+                            System.out.println("Error de longitud de 8 o 16 bits");
+                            ++contError;
+                        }
                     }
                     break;
                 default:
@@ -334,7 +380,10 @@ public class Operando {
                 }
 
             } else {
-                System.out.println("Error operando con etiqueta");
+                if(contError < 1){
+                    System.out.println("Error operando con etiqueta");
+                    ++contError;
+                }
             }
         } else if (cadena == "" && oper == 0) {// Inherente
             cadena = "Inherente";
