@@ -1,3 +1,13 @@
 Dir_Inic	 0000	 null	 ORG	 $0	 Dire_Inic	 0
-ContLoc	 0000	 null	 LDAA	 [D,SP]	 [D,IDX]	 A6
-ContLoc	 0002	 null	 END	 null	 Directiva	 0
+ContLoc	 0000	 null	 ABA	 null	 Inherente	 1806
+ContLoc	 0002	 null	 LDAA	 $0055	 Directo	 96
+ContLoc	 0004	 null	 LDAA	 $FFFF	 Extendido	 B6
+ContLoc	 0007	 null	 LDAA	 #$55	 Inmediato	 86
+ContLoc	 0009	 null	 LDAA	 1,X	 IDX	 A6
+ContLoc	 000B	 null	 LDAA	 34,X	 IDX1	 A6
+ContLoc	 000E	 null	 LDAA	 31483,X	 IDX2	 A6
+ContLoc	 0012	 null	 STX	 2,SP+	 IDX	 6E
+ContLoc	 0014	 null	 LDAA	 A,X	 IDX	 A6
+ContLoc	 0016	 null	 ADCB	 [D,SP]	 [D,IDX]	 E9
+ContLoc	 0018	 null	 LDAA	 [10,X]	 [IDX2]	 A6
+ContLoc	 001C	 null	 END	 null	 Directiva	 0

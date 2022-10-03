@@ -132,10 +132,13 @@ public class Operando {
                     ++contError;
                 }
             }
+            ban = true;
         } else if (encontrado4) {// IDX acumulador
             cadena = "IDX";
+            ban = true;
         } else if (encontrado5) {// IDX acumulador indirecto
             cadena = "[D,IDX]";
+            ban = true;
         } else if (encontrado6) {// IDX 16bits indirecto
             String result = cadena.replaceAll("\\[", ",");
             int valor;
@@ -385,6 +388,7 @@ public class Operando {
                     ++contError;
                 }
             }
+            ban = true;
         } else if (cadena == "" && oper == 0) {// Inherente
             cadena = "Inherente";
             ban = true;

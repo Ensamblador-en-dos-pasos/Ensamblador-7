@@ -22,23 +22,6 @@ public class Leer {
     private static Validador val = new Validador();
     private static LcTabop bus = new LcTabop();
 
-    // Getters y Setters de los atributos codop y operando
-    public void setCodop(String codop) {
-        this.codop = codop;
-    }
-
-    public void setOper(String oper) {
-        this.oper = oper;
-    }
-
-    public String getCodop() {
-        return codop;
-    }
-
-    public String getOper() {
-        return oper;
-    }
-
     /**
      * Método para leer el archivo
      * 
@@ -299,7 +282,8 @@ public class Leer {
                 }
 
                 if (ver) {// Guardar los valores en la lista
-                    add(et, codop, oper);
+                    bus.add(et, codop, oper);
+                    add(et, codop);
                 }
                 break;
             
@@ -328,25 +312,14 @@ public class Leer {
     }
 
     /**
-     * Método de impresión de las validaciones
-     * Valida errores en etiqueta y codop, proximammente en OP
-     * 
-     * @param arreglo entrada del arreglo a evaluar
-     * @throws IOException
-     */
-    public void impresionMetods(Nodo head) throws IOException {
-        bus.BuscarCodop("Tabop.txt", head.getEtiqueta(), head.getCodop(), head.getOperando());
-    }
-
-    /**
      * Método para guardar los valores en una lista
      * 
      * @param et
      * @param cp
      * @param op
      */
-    static void add(String et, String cp, String op) {
-        Nodo nuevo = new Nodo(et, cp, op);
+    static void add(String et, String cp) {
+        Nodo nuevo = new Nodo(et, cp);
 
         if (clear() == true) {
             head = nuevo;
@@ -369,22 +342,6 @@ public class Leer {
      */
     private static boolean clear() {
         return head == null;
-    }
-
-    /**
-     * Método para buscar los valores de la lista en el tabop
-     * @throws IOException
-     */
-    public void buscar() throws IOException {
-        Nodo aux = head;
-        if (!clear()) {
-            while (aux != null) {
-                impresionMetods(aux);
-                aux = aux.getNext();
-            }
-        } else {
-            System.out.println("No hay instrucciones");
-        }
     }
 
     /**

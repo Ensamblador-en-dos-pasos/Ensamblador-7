@@ -33,6 +33,17 @@ public class Nodo {
         this.next = null;
     }
 
+    /**
+     * Constructor para los valores del ensamblador
+     * @param et etiqueta
+     * @param codop codigo de operacion
+     */
+    public Nodo(String et, String codop){
+        this.etiqueta = et;
+        this.codop = codop;
+        this.next = null;
+    }
+
     /* Getters y Setters de et, codop y oper */
     public String getEtiqueta(){
         if(etiqueta == null){

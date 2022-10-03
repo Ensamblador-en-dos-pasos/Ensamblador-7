@@ -70,6 +70,7 @@ public class CodMaquina {
                             default:
                                 break;
                         }
+                        
                         break;
                     case "Inmediato":
                     case "Inmediato1":
