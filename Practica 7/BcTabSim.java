@@ -12,10 +12,11 @@ public class BcTabSim {
         
         try {
             
-            while (sc.hasNextLine()){
+            while (sc.hasNext()){
                 contloc = sc.next();
                 et = sc.next();
                 valor = sc.next();
+            
 
                 if(oper.equals(et)){
                     valenc = valor;

@@ -155,6 +155,7 @@ public class LcTabop {
                                     ContlocEqu = Integer.parseInt(oper);
                                     dec2 = conv.dectohex(ContlocEqu);//Examina el valor y lo convierte a hexadecimal
                                     dec2 = conv.ceros(dec2);
+                                    dec2 = dec2.toUpperCase();
                                     TMP.printf("%s\t %s\t %s\t %s\t %s\t %s\t %s\t", "Valor-EQU", dec2, et, codop, oper, addr, bytes);
                                     TMP.println();
                                     TABSIM.printf("%s\t %s\t %s\t", "EQU(Etiqueta-absoluta)", et, dec2);

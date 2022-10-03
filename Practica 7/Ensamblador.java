@@ -7,13 +7,13 @@ import java.io.IOException;
  * @version 1.45
  */
 public class Ensamblador {
-        public static void main(String[] args) throws FileNotFoundException, IOException {
+        public static void main(String[] args) throws FileNotFoundException, IOException { 
                 Leer read = new Leer();
                 LcTabop tab = new LcTabop();
                 CodMaquina cod= new CodMaquina();
                 read.leerArc("P2ASM.txt");
                 read.Lcc();
                 tab.buscar();
-                cod.cMaquina();  
+                cod.cMaquina();
         }
 }
